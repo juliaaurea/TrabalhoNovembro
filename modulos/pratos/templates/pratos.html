@@ -9,18 +9,24 @@
             </div>
         {% endfor %}
     {% endif %}
-    <div>
+    <div class="adicionar">
         <a href="/pratos/add">Adicionar</a>
     </div>
     <table>
         <tr>
             <th>Nome</th>
             <th>Preco</th>
+            <th>Restaurantes</th>
+            <th>Editar</th>
+            <th>Remover</th>
         </tr>
         {% for p in pratos %}
         <tr>
             <td>{{p.nome}}</td>
             <td>{{p.preco}}</td>
+            <td>{{p.restaurantes.nome}}</td>
+            <td><a href="/pratos/edit/{{p.id_pratos}}">[E]</a></td>
+            <td><a href="/pratos/remove/{{p.id_pratos}}">[X]</a></td>
         </tr>
         {% endfor %}
     </table>

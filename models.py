@@ -11,13 +11,12 @@ class Restaurantes(db.Model):
         self.localizacao = localizacao
 
     def __repr__(self):
-        return "<Restaurante {}>".format(self.nome)
-
+        return f"<Restaurante {self.nome}"
     
 class Pratos(db.Model):
     __tablename__ = 'pratos'
     id_pratos = db.Column(db.Integer, primary_key=True)
-    id_restaurantes = db.Column(db.Integer, db.ForeignKey('restaurantes.id'))
+    id_restaurantes = db.Column(db.Integer, db.ForeignKey('restaurantes.id_restaurante'))
     nome = db.Column(db.String(100))
     preco = db.Column(db.Float(10,2))
 
@@ -30,4 +29,4 @@ class Pratos(db.Model):
         self.preco = preco
 
     def __repr__(self):
-        return "<Pratos {} - {} - {}>".format(self.restaurantes.nome, self.nome, self.preco)
+        return f"<Pratos: {self.restaurantes.nome} - {self.nome} - {self.preco}>"

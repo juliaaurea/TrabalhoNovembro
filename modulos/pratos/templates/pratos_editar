@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block conteudo %}
+
     {% set mensagens = get_flashed_messages() %}
     {% if mensagens %}
         {% for msg in mensagens %}
-            <div class="message">
-                {{ msg }}
-            </div>
+        <div>
+            {{msg}}
+        </div>
         {% endfor %}
     {% endif %}
-    <form action="/pratos/save" method="post">
+    <form action="/pratos/edit-save" method="post">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome">
@@ -27,9 +28,7 @@
                 {% endfor %}
             </select>
         </div>
+        <input type="hidden" name="id_pratos" id="id_pratos" value="{{pratos.id_pratos}}">
         <button type="submit">Salvar</button>
     </form>
 {% endblock %}
-
-
-

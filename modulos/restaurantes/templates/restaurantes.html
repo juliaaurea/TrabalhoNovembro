@@ -9,18 +9,22 @@
             </div>
         {% endfor %}
     {% endif %}
-    <div>
+    <div class="adicionar">
         <a href="/restaurantes/add">Adicionar</a>
     </div>
     <table>
         <tr>
             <th>Nome</th>
             <th>Localizacao</th>
+            <th>Editar</th>
+            <th>Remover</th>
         </tr>
         {% for r in restaurantes %}
         <tr>
             <td>{{r.nome}}</td>
             <td>{{r.localizacao}}</td>
+            <td><a href="/restaurantes/edit/{{r.id_restaurantes}}">[E]</a></td>
+            <td><a href="/restaurantes/remove/{{r.id_restaurantes}}">[X]</a></td>
         </tr>
         {% endfor %}
     </table>
